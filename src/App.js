@@ -13,15 +13,16 @@ const App =()=> {
   },[])
 
 
-  const search = ({q})=>{
-    console.log({q})
+  const search =async (q)=>{
+    const query = await movieSearch(q);
+    setPopularMovies(query.results)
   }
 
 const PopularMovieList= ()=>{
   return popularMovies.map((movie,i)=>{
     return (
    
-      <div className="Movie-wrapper" key= {i}> 
+      <div className="Movie-wrapper" key= {i} > 
           <div className="Movie-tittle">{movie.title}</div>
           <img className="Movie-image" src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}/>
           <div className="Movie-date">{movie.release_date}</div>
@@ -36,13 +37,15 @@ const PopularMovieList= ()=>{
   return (
     <div className="App">
       <header className="App-header">
-      <h1>Movie-Search</h1>
-      <input placeholder='cari film...' className="Movie-search" 
+      <h1 className="judul">FILM BIOSKOP</h1>
+      <input placeholder='Cari film...' className="Movie-search" 
       onChange={({target})=>search(target.value)}/>
-   <div className="Movie-container">
+
+   <div className="Movie-container" >
     <PopularMovieList/>
-    </div>
-      </header>
+  </div>
+     </header>
+    
     </div>
   );
 }
