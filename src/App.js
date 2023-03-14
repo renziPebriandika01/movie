@@ -31,7 +31,6 @@ const PopularMovieList= ()=>{
        <div className="card-body">
           <h5 class="text-dark">{movie.title}</h5>
           <p class="text-danger">{movie.release_date}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
       </div>
         
