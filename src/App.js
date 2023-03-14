@@ -2,6 +2,10 @@
 import './App.css';
 import { getMovieList,movieSearch }from './api';
 import { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
+
 
 const App =()=> {
   const [popularMovies,setPopularMovies]= useState ([])
@@ -22,26 +26,28 @@ const PopularMovieList= ()=>{
   return popularMovies.map((movie,i)=>{
     return (
    
-      <div className="Movie-wrapper" key= {i} > 
-          <div className="Movie-tittle">{movie.title}</div>
-          <img className="Movie-image" src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}/>
-          <div className="Movie-date">{movie.release_date}</div>
-          <div className="Movie-rate">{movie.vote_average}</div>
+      <div className="card" key= {i} style={{width:"18rem",alignItems:"center"}} > 
+       <img className="card-img-top" style={{width:"70%",marginTop:"20px"}}src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}/>
+       <div className="card-body">
+          <h5 class="text-dark">{movie.title}</h5>
+          <p class="text-danger">{movie.release_date}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
-
+      </div>
+        
     
   
     )
   })
 }
   return (
-    <div className="App">
+    <div className="App bg-dark">
       <header className="App-header">
-      <h1 className="judul">FILM BIOSKOP</h1>
-      <input placeholder='Cari film...' className="Movie-search" 
+      <h1 className="h1 mt-4">FILM BIOSKOP</h1>
+      <input placeholder='Cari Film...' className="justify-content-cente mt-5 mb-5 input-group-sm " ariaLabel="Username" ariaDescribedby="basic-addon1"
       onChange={({target})=>search(target.value)}/>
 
-   <div className="Movie-container" >
+   <div className="row ms-5 gap-3" >
     <PopularMovieList/>
   </div>
      </header>

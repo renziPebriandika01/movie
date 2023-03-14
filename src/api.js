@@ -8,7 +8,7 @@ const baseUrl =process.env.REACT_APP_BASEURL
 //     console.log({getMovieList:movie})
 // }
 export const getMovieList = async () => {
-    const movie = await axios.get (`${baseUrl}/movie/popular?page=1&api_key=${apiKey}`)
+    const movie = await axios.get (`${baseUrl}/movie/now_playing?page=1&api_key=${apiKey}`)
 return movie.data.results
 
 }
