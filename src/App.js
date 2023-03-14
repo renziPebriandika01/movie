@@ -42,11 +42,12 @@ const PopularMovieList= ()=>{
   return (
     <div className="App bg-dark">
       <header className="App-header">
-      <h1 className="h1 mt-4">FILM BIOSKOP</h1>
+      <h1 className="h1 mt-4">PENCARIAN FILM BIOSKOP</h1>
+      <h5 className="h5 mt-2 text-danger">by Renzi</h5>
       <input placeholder='Cari Film...' className="justify-content-cente mt-5 mb-5 input-group-sm " ariaLabel="Username" ariaDescribedby="basic-addon1"
       onChange={({target})=>search(target.value)}/>
 
-   <div className="row ms-5 gap-3" >
+   <div className="row ms-4 gap-3" >
     <PopularMovieList/>
   </div>
      </header>
